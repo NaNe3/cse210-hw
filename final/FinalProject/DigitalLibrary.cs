@@ -29,42 +29,6 @@ public class DigitalLibrary
         AddAuthor(work.GetAuthor());
     }
 
-    public List<LiteraryWork> SearchByAuthor(string authorName)
-    {
-        List<LiteraryWork> results = new List<LiteraryWork>();
-
-        foreach (LiteraryWork work in _works)
-        {
-            if (work.GetAuthor().Name.IndexOf(authorName, StringComparison.OrdinalIgnoreCase) >= 0)
-            {
-                results.Add(work);
-            }
-        }
-
-        return results;
-    }
-
-    public List<LiteraryWork> SearchByGenre(string genre)
-    {
-        List<LiteraryWork> results = new List<LiteraryWork>();
-
-        foreach (LiteraryWork work in _works)
-        {
-            string typeName = work.GetType().Name;
-            if (typeName.Equals(genre, StringComparison.OrdinalIgnoreCase))
-            {
-                results.Add(work);
-            }
-        }
-
-        return results;
-    }
-
-    public List<Author> GetAuthors()
-    {
-        return new List<Author>(_authors);
-    }
-
     public List<LiteraryWork> GetWorks()
     {
         return new List<LiteraryWork>(_works);
